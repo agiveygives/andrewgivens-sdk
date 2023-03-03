@@ -1,20 +1,25 @@
 {
   "name": "andrewgivens-sdk",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "private": false,
   "scripts": {
     "build": "tsc",
-    "test": "jest --config jestconfig.json",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "tslint -p tsconfig.json"
+    "test": "jest",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
+    "docs": "typedoc",
+    "prepublish": "npm run build",
+    "prepack": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/agiveygives/andrewgivens-sdk.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Andrew Givens",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/agiveygives/andrewgivens-sdk/issues"
@@ -23,14 +28,20 @@
   "files": [
     "lib/**/*"
   ],
+  "dependencies": {
+    "axios": "^1.3.4"
+  },
   "devDependencies": {
     "@types/jest": "^29.4.0",
+    "axios-mock-adapter": "^1.21.2",
+    "eslint-plugin-tsdoc": "^0.2.17",
     "jest": "^29.4.3",
     "prettier": "^2.8.4",
     "ts-jest": "^29.0.5",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
     "typedoc": "^0.23.26",
+    "typedoc-plugin-missing-exports": "^1.0.0",
     "typescript": "^4.9.5"
   }
 }
